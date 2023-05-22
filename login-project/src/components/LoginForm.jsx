@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { auth } from '../database/firebase';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth"
-import Main from '../page/Main';
 import { useNavigate } from 'react-router-dom';
+import Button1 from '../features/Button1';
 
 export default function LoginForm() {
     const [email, setEmail] = useState("");
@@ -72,7 +72,7 @@ export default function LoginForm() {
     }
   return (
     <div>
-        <h3>로그인 폼입니다.</h3>
+        <h3>로그인 또는 회원가입 페이지입니다.</h3>
         <form onSubmit={onEmailLogin}>
             <label htmlFor="이메일">이메일</label>
             <input type="email" required
@@ -86,9 +86,9 @@ export default function LoginForm() {
                 value={password}
             />
             <br />
-            <input type="submit" value="회원가입"/>
+            <Button1 bgcolor="green" type="submit">회원가입</Button1>
         </form>
-        <button type="button" onClick={onClickLogin}>로그인</button>
+        <Button1 bgcolor="blue" onClick={onClickLogin}>로그인</Button1>
     </div>
   )
 }
